@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 
 const opponentMapper = {
   A: "ROCK",
@@ -26,7 +27,9 @@ const scoreValues = {
 
 const solve = () => {
   let result = 0;
-  const inputSplit = fs.readFileSync("input.txt", "utf8").split("\n");
+  const inputSplit = fs
+    .readFileSync(path.resolve(__dirname, "input.txt"), "utf8")
+    .split("\n");
   inputSplit.forEach((input) => {
     const [opponentSelection, selfSelection] = input.split(" ");
     const opponentShape = opponentMapper[opponentSelection];
